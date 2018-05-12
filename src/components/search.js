@@ -4,6 +4,11 @@ angular.module('video-player')
   controller: function() {
 
   },
+
+  bindings: {
+    currentSearchVideo: '<'
+  },
+
   template: `
     <div class="search-bar form-inline">
       <input class="form-control" type="text" />
