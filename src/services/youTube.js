@@ -2,7 +2,6 @@ angular.module('video-player')
 .service('youTube', function($http){
 
   this.search = function(query, callback){
-    console.log(window.YOUTUBE_API_KEY)
     let url = 'https://www.googleapis.com/youtube/v3/search';
     $http.get(url, {
       params: {

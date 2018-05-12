@@ -2,11 +2,10 @@ angular.module('video-player')
 
 .component('app', {
   controller: function(youTube) {
-    this.videos = window.exampleVideoData;
-    this.currentVideo = window.exampleVideoData[0];
+    // this.videos = window.exampleVideoData;
+    // this.currentVideo = window.exampleVideoData[0];
     
     this.changeCurrentVideo = (inputVideo) => {
-      // console.log(this)
       this.currentVideo = inputVideo;
     };
 
@@ -15,13 +14,11 @@ angular.module('video-player')
       this.currentVideo = searchResults.data.items[0];
     };
 
-    // invoke youtube search here
-    // pass in the callback
-    // pass the input inside youtube.js
     this.doSearch = (input) => {
-      // console.log("hello")
       youTube.search(input, this.currentSearchVideo);
-    }
+    };
+
+    this.doSearch('maybe i want');
   },
 
   template: `

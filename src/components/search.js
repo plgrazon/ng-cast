@@ -12,7 +12,7 @@ angular.module('video-player')
 
   template: `
     <div class="search-bar form-inline">
-      <input class="form-control" type="text" ng-model="$ctrl.newSearch"/>
+      <input class="form-control" type="text" ng-model-options="{ debounce: 500 }" ng-model="$ctrl.newSearch" ng-keyup="$ctrl.doSearch($ctrl.newSearch)" />
       <button class="btn" ng-click="$ctrl.doSearch($ctrl.newSearch)">
         <span class="glyphicon glyphicon-search"></span>
       </button>
