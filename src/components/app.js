@@ -2,7 +2,6 @@ angular.module('video-player')
 
 .component('app', {
   controller: function(youTube) {
-    youTube.search();
     this.videos = window.exampleVideoData;
     this.currentVideo = window.exampleVideoData[0];
     
@@ -12,8 +11,16 @@ angular.module('video-player')
     };
 
     this.currentSearchVideo = (searchResults) => {
-      this.videos = searchResults;
-      this.currentVideo = searchResults[0];
+      this.videos = searchResults.data.items;
+      this.currentVideo = searchResults.data.items[0];
+    };
+
+    // invoke youtube search here
+    // pass in the callback
+    // pass the input inside youtube.js
+    this.doSearch = (input) => {
+      // console.log("hello")
+      youTube.search(input, this.currentSearchVideo);
     }
   },
 
@@ -21,7 +28,7 @@ angular.module('video-player')
     <div id="app container">
     <nav class="navbar">
       <div class="col-md-6 col-md-offset-3">
-        <search current-search-video="$ctrl.currentSearchVideo"><h5><em>search</em></h5></search>
+        <search do-search="$ctrl.doSearch" current-search-video="$ctrl.currentSearchVideo"><h5><em>search</em></h5></search>
       </div>
     </nav>
     <div class="row">
