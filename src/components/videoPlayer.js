@@ -5,6 +5,11 @@ angular.module('video-player')
     this.video = window.exampleVideoData[0];
     this.videoURL = 'https://www.youtube.com/embed/' + this.video.id.videoId;
   },
+
+  bindings: {
+    video: '<'
+  },
+
   template: `
     <div class="video-player">
       <div class="embed-responsive embed-responsive-16by9">

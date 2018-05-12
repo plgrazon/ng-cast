@@ -2,7 +2,10 @@ angular.module('video-player')
 
 .component('app', {
   controller: function() {
-    this.videos = window.exampleVideoData
+    this.videos = window.exampleVideoData;
+    this.onClickedTitle = () => {
+      
+    }
   },
 
   template: `
@@ -14,7 +17,7 @@ angular.module('video-player')
     </nav>
     <div class="row">
       <div class="col-md-7">
-        <video-player ><h5><em>videoPlayer</em></h5></video-player>
+        <video-player  ><h5><em>videoPlayer</em></h5></video-player>
       </div>
       <div class="col-md-5">
         <video-list videos="$ctrl.videos"><h5><em>videoList</em></h5></video-list>
